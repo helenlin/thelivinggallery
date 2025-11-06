@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @font-face {
+          font-family: BPDots;
+          src: url("assets/fonts/Bpdots.otf");
+      }
+
+
+      * {
+          font-family: BPDots;
+      }
+
+      html, body{
+        margin: 0;
+        padding: 0;
+      }
+
+      canvas {
+        border: 10px solid #ffffff;
+        z-index: 0;
+      }
+
+      #popupText * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #popupText {
+        position: fixed;
+        font-size: 12px;
+        box-sizing: border-box;
+        top: 20px;
+        right: 20px;
+        background: white;
+        color: black;
+        padding: 15px;
+        display: none; /* hidden by default */
+        z-index: 10;
+        max-width: 30vw;
+
+                /* New additions: */
+        max-height: 40vh;        /* Adjust as needed */
+        overflow-y: auto;        /* Enables vertical scrollbar */
+        border: 1px solid #ccc;  /* Optional: visualize bounds */
+      }
+
+      #overlay {
+        z-index: 1;
+        position: fixed;
+      }
+
+      #directions {
+        position: fixed;
+        color: #221d1f;
+      }
+    </style> </head>
+  <body>
+
+    <div id="popupText"></div>
+
+    <div id="overlay">
+      <div id="directions" style="top: 30px; left: 35px;">soft sculpture gallery<br><br>wasd to move. mouse to orient.</div>
+    </div>
+
+    
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.172.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.172.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <!-- add the socket.io script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
