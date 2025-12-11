@@ -68,7 +68,7 @@ body {
   padding-top: 10rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  width: 85dvw;
+  width: 75dvw;
   overflow-y: auto;
 }
 
@@ -89,7 +89,7 @@ body {
 #gcal {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 100%;
+  width: 85%;
   height: 80dvh;
   display: block;
   filter: saturate(0.5) hue-rotate(95deg);
