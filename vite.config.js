@@ -14,6 +14,7 @@ export default defineConfig({
       // https://vitejs.dev/guide/build.html#multi-page-app
       input: {
         main: resolve(__dirname, "src/index.html"),
+        about: resolve(__dirname, "src/about/index.html"),
         gallery: resolve(__dirname, "src/gallery/index.html"),
       },
     },
