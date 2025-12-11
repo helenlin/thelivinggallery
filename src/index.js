@@ -69,15 +69,6 @@ fontLoader.load(
     textMesh.position.z = -2;
     textMesh.position.y = 4.2;
     scene.add(textMesh);
-    
-    // Add gentle floating animation to text
-    gsap.to(textMesh.position, {
-      y: textMesh.position.y + 0.2,
-      duration: 5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
   }
 );
 
