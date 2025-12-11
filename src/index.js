@@ -2,6 +2,8 @@ import "./style.css";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 
 // Background Three.js scene
 const canvas = document.querySelector("#canvas");
@@ -20,22 +22,65 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 5;
 
 // Lighting
-const light = new THREE.PointLight(0xffffff, 10);
+const light = new THREE.PointLight(0xffffff, 1000);
 light.position.set(0, 5, 0);
 scene.add(light);
 scene.add(new THREE.AmbientLight(0xffffff, 5));
 
 // Add 3D Grid
-/*
-const gridHelper = new THREE.GridHelper(20, 20, 0x000000, 0x000000);
+
+const gridHelper = new THREE.GridHelper(20, 20, 0x00FFFF, 0x0000FF);
 gridHelper.position.y = -3;
 scene.add(gridHelper);
-*/
+
 
 const gridHelperLeft = new THREE.GridHelper(20, 20, 0x000000, 0x000000);
-gridHelperLeft.position.y = -3;
+gridHelperLeft.position.y = 7;
+gridHelperLeft.position.z = -10;
 gridHelperLeft.rotation.x = Math.PI / 2;
 scene.add(gridHelperLeft);
+
+// Load font and create text
+let textMesh;
+const fontLoader = new FontLoader();
+fontLoader.load(
+  'https://threejs.org/examples/fonts/gentilis_regular.typeface.json',
+  (font) => {
+    const textGeo = new TextGeometry('the_living_gallery', {
+      font: font,
+      size: 0.5,
+      depth: 0.1,
+      curveSegments: 12,
+      bevelEnabled: true,
+      bevelThickness: 0.03,
+      bevelSize: 0.02,
+      bevelSegments: 3,
+    });
+    
+    textGeo.center();
+    
+    const textMaterial = new THREE.MeshStandardMaterial({
+      color: 0x049ef4,
+      metalness: 1,
+      roughness: 0.2,
+    });
+    
+    textMesh = new THREE.Mesh(textGeo, textMaterial);
+    textMesh.position.z = -2;
+    textMesh.position.y = 4.2;
+    scene.add(textMesh);
+    
+    // Add gentle floating animation to text
+    gsap.to(textMesh.position, {
+      y: textMesh.position.y + 0.2,
+      duration: 5,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+    });
+  }
+);
+
 
 // Load chromedino model
 const loader = new GLTFLoader();
@@ -94,6 +139,7 @@ loader.load(
     const box = new THREE.Box3().setFromObject(dinoModel);
     const center = box.getCenter(new THREE.Vector3());
     dinoModel.position.set(center.x, center.y+1, center.z);
+    dinoModel.rotation.y = Math.PI; // Face forward
     dinoModel.scale.set(5, 5, 5);
   },
   (progress) => {
@@ -165,17 +211,19 @@ window.addEventListener("resize", onWindowResize);
 const animate = () => {
   requestAnimationFrame(animate);
   
-  // Make model face the mouse cursor
+  // Make model position and rotation follow the mouse cursor
   if (dinoModel) {
-    // Create a target position based on mouse position
-    const targetX = mouse.x * 1;
-    const targetY = mouse.y * 1;
-    const targetPosition = new THREE.Vector3(targetX, targetY, 0);
+    // Update position based on mouse
+    const targetX = mouse.x * 2;
+    const targetY = mouse.y * 2;
+    dinoModel.position.x += (targetX - dinoModel.position.x) * 0.009;
+    dinoModel.position.y += (targetY - dinoModel.position.y) * 0.009;
     
-    // Make model look at the target position
-    const direction = targetPosition.sub(dinoModel.position).normalize();
+    // Make model face the mouse cursor
+    const targetPosition = new THREE.Vector3(targetX, targetY, 0);
+    const direction = new THREE.Vector3().subVectors(targetPosition, dinoModel.position).normalize();
     const quaternion = new THREE.Quaternion();
-    const up = new THREE.Vector3(0, 1, 0);
+    const up = new THREE.Vector3(-1, 0, 0);
     const axis = new THREE.Vector3().crossVectors(up, direction).normalize();
     const angle = Math.acos(Math.max(-1, Math.min(1, up.dot(direction))));
     
