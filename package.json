@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "gsap": "^3.13.0",
+    "nodemailer": "^6.10.1",
     "stats.js": "^0.17.0",
     "three": "^0.180.0"
   },
