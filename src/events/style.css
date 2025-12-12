@@ -19,6 +19,16 @@ p {
 
 }
 
+#igIframe {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 85%;
+  display: block;
+  border: 5px dashed rgb(0, 0, 0);
+  background-color: white;
+}
+
+
 sub {
   display: block;
   font-size: 18px;
