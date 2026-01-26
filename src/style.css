@@ -8,7 +8,7 @@
   cursor: crosshair;
 }
 
-p {
+p{
   margin: 0 auto;
 
   font-size: 18px;
@@ -18,6 +18,46 @@ p {
   text-shadow: white 0px 0px 10px;
 
 }
+
+ul {
+  margin: 0 auto;
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: left;
+  background-color: white;
+  text-shadow: white 0px 0px 10px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  text-align: left;
+  background-color: white;
+  text-shadow: white 0px 0px 10px;
+  margin-bottom: 1rem;
+}
+
+.boxedup {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 85%;
+  display: block;
+  border: 5px dashed rgb(0, 0, 0);
+  background-color: white;
+}
+
+#gcal {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 85%;
+  height: 80dvh;
+  display: block;
+  filter: saturate(0.5) hue-rotate(95deg);
+  border: 5px dashed rgb(0, 0, 0);
+  background-color: white;
+}
+
 
 sub {
   display: block;
@@ -56,8 +96,7 @@ body {
 }
 
 #sidebar {
-  width: 15dvw;
-  min-width: 150px;
+  width: 120px;
   padding: 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -65,10 +104,10 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 10rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  width: 75dvw;
+  padding-top: 13dvh;
+  padding-left: 3dvw;
+  padding-right: 5dvw;
+  width: 92dvw;
   overflow-y: auto;
 }
 
@@ -86,17 +125,6 @@ body {
   gap: 1rem;
 }
 
-#gcal {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  width: 85%;
-  height: 80dvh;
-  display: block;
-  filter: saturate(0.5) hue-rotate(95deg);
-  border: 5px dashed rgb(0, 0, 0);
-  background-color: white;
-}
-
 
 a {
   color: white;
@@ -106,9 +134,8 @@ a {
 
 a:hover {
   animation-name: colorChange;
-  animation-duration: 1s;
+  animation-duration: 0.25s;
   background-color: rgb(69, 26, 209);
-  filter: blur(150)
 }
 
 h1 {
@@ -222,3 +249,117 @@ h1 {
   }
 }
 
+@media (max-width: 600px) {
+
+  #content {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #sidebar {
+    width: 100%;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: none;
+    display: fixed;
+    align-items: center;
+    background-color: rgba(0, 0, 0);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  #main-content {
+    flex: 1;
+    padding-top: 2rem;
+    padding-left: 4dvw;
+    padding-right: 4dvw;
+    width: 90dvw;
+    overflow-y: auto;
+  }
+
+  #maintitle {
+    display: block;
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 0;
+    font-family: "Space Mono", monospace;
+  }
+
+  #menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  #menu.active {
+    max-height: 400px;
+  }
+
+  #menu a {
+    padding: 0.25rem;
+    display: block;
+    margin: 0;
+    text-align: left;
+  }
+
+  #menu a:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    color: white;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+  }
+
+  a:hover {
+    animation-name: colorChange;
+    animation-duration: 0.25s;
+    background-color: rgb(69, 26, 209);
+  }
+
+  h1 {
+    font-style: normal;
+  }
+
+}

@@ -235,3 +235,23 @@ const animate = () => {
 };
 
 animate();
+
+// Mobile hamburger menu toggle
+const hamburger = document.querySelector("#hamburger");
+const menu = document.querySelector("#menu");
+
+if (hamburger) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    menu.classList.toggle("active");
+  });
+
+  // Close menu when a link is clicked
+  const menuLinks = menu.querySelectorAll("a");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      menu.classList.remove("active");
+    });
+  });
+}
