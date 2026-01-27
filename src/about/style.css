@@ -126,6 +126,11 @@ h1 {
   letter-spacing: 0.1em;
 }
 
+#flyer {
+  width:80%; 
+  max-width: 800px;
+  height:auto; 
+}
 
 @keyframes colorChange {
   from {
@@ -340,4 +345,8 @@ h1 {
     font-style: normal;
   }
 
+  #flyer {
+    width: 88dvw;
+    height: auto;
+  }
 }
