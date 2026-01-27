@@ -14,9 +14,12 @@ p {
   font-size: 18px;
   line-height: 28px;
   text-align: left;
-  background-color: white;
   text-shadow: white 0px 0px 10px;
 
+}
+
+.highlight{
+  background-color: white;
 }
 
 .boxedup {
@@ -74,7 +77,7 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 13dvh;
+  padding-top: 16dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
   width: 92dvw;
@@ -274,7 +277,7 @@ h1 {
 
   #main-content {
     flex: 1;
-    padding-top: 2rem;
+    padding-top: 4rem;
     padding-left: 4dvw;
     padding-right: 4dvw;
     width: 90dvw;
@@ -333,5 +336,7 @@ h1 {
   h1 {
     font-style: normal;
   }
+
+
 
 }

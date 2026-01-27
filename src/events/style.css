@@ -14,9 +14,12 @@ p {
   font-size: 18px;
   line-height: 28px;
   text-align: left;
-  background-color: white;
   text-shadow: white 0px 0px 10px;
 
+}
+
+.highlight{
+  background-color: white;
 }
 
 .boxedup {
@@ -83,7 +86,7 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 13dvh;
+  padding-top: 16dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
   width: 92dvw;
