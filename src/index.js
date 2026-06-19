@@ -246,3 +246,73 @@ if (hamburger) {
     });
   });
 }
+
+// Carousel functionality
+const carouselImages = document.querySelectorAll(".carousel-image");
+const carouselContainer = document.querySelector(".carousel-container");
+const carouselPrevBtn = document.querySelector("#carouselPrev");
+const carouselNextBtn = document.querySelector("#carouselNext");
+const modal = document.querySelector("#carouselModal");
+const modalImage = document.querySelector("#carouselModalImage");
+const modalClose = document.querySelector(".carousel-modal-close");
+const modalCaption = document.querySelector("#carouselModalCaption");
+
+let carouselIndex = 0;
+const imagesPerView = 3;
+const totalImages = carouselImages.length;
+
+function updateCarouselView() {
+  // Hide all images
+  carouselImages.forEach((img) => {
+    img.style.display = "none";
+  });
+
+  // Show the current set of 3 images
+  for (let i = 0; i < imagesPerView; i++) {
+    const imageIndex = (carouselIndex + i) % totalImages;
+    carouselImages[imageIndex].style.display = "block";
+  }
+}
+
+function nextCarouselSlide() {
+  carouselIndex = (carouselIndex + 1) % totalImages;
+  updateCarouselView();
+}
+
+function prevCarouselSlide() {
+  carouselIndex = (carouselIndex - 1 + totalImages) % totalImages;
+  updateCarouselView();
+}
+
+function openModal(imageSrc, altText) {
+  modalImage.src = imageSrc;
+  modalImage.alt = altText || "Closeup";
+  if (modalCaption) modalCaption.textContent = altText || "Closeup";
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+// Add click handlers to carousel images
+carouselImages.forEach((img) => {
+  img.addEventListener("click", () => {
+    openModal(img.src, img.alt);
+  });
+});
+
+// Add event listeners to carousel buttons
+carouselPrevBtn.addEventListener("click", prevCarouselSlide);
+carouselNextBtn.addEventListener("click", nextCarouselSlide);
+
+// Modal close handlers
+modalClose.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+// Initialize carousel view
+updateCarouselView();

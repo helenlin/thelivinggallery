@@ -76,12 +76,12 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
 #main-content {
   flex: 1;
-  padding-top: 16dvh;
+  padding-top: 80dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
+  padding-bottom: 20dvh;
   width: 92dvw;
   overflow-y: auto;
 }
