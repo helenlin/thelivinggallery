@@ -79,7 +79,6 @@ let dinoModel;
 
 // Mouse tracking
 const mouse = new THREE.Vector2();
-let mouseTimeout;
 const body = document.body;
 
 window.addEventListener("mousemove", (event) => {
@@ -95,17 +94,6 @@ window.addEventListener("mousemove", (event) => {
   
   // Apply the color to background
   body.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-  
-  // Apply blur to canvas when mouse is moving
-  canvas.style.filter = "blur(3px)";
-  
-  // Clear existing timeout
-  clearTimeout(mouseTimeout);
-  
-  // Remove blur after mouse stops moving (500ms)
-  mouseTimeout = setTimeout(() => {
-    canvas.style.filter = "blur(0px)";
-  }, 500);
 });
 
 loader.load(
