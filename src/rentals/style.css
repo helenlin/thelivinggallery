@@ -10,24 +10,27 @@
 
 p{
   margin: 0 auto;
-
   font-size: 18px;
   line-height: 28px;
   text-align: left;
-  text-shadow: white 0px 0px 10px;
 
 }
 
+.color {
+  color: white;
+}
+
 .highlight{
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 h3 {
   font-size: 24px;
   line-height: 32px;
   text-align: left;
-  text-shadow: white 0px 0px 10px;
   margin-bottom: 1rem;
+  font-family: "Space Mono", monospace !important; font-weight:400;
 }
 
 .boxedup {
@@ -84,10 +87,10 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 80dvh;
+  padding-top: 30dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
-  padding-bottom: 20dvh;
+  padding-bottom: 100dvh;
   width: 92dvw;
   overflow-y: auto;
 }
@@ -97,7 +100,7 @@ body {
   width: 100%;
   padding-top: 2rem;
   padding-left: 0;
-  font-family: "Space Mono", monospace;
+  font-family: "Space Mono", monospace !important; font-weight:400;
 }
 
 #menu {
@@ -122,15 +125,9 @@ a:hover {
 
 h1 {
   font-style: normal;
+  font-family: "Space Mono", monospace !important; font-weight:400;
 }
 
-#maintitle {
-  font-size: 60px;
-  line-height: 56px;
-  display: block;
-  text-align: left;
-  letter-spacing: 0.1em;
-}
 
 #floorplan {
   height:100%; 
@@ -292,10 +289,11 @@ h1 {
 
   #main-content {
     flex: 1;
-    padding-top: 2rem;
-    padding-left: 5dvw;
+    padding-top: 80dvh;
+    padding-left: 3dvw;
     padding-right: 5dvw;
-    width: 90dvw;
+    padding-bottom: 100dvh;
+    width: 92dvw;
     overflow-y: auto;
   }
 

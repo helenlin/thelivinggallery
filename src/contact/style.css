@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
 
-
 * {
   padding: 0;
   margin: 0;
@@ -16,9 +15,17 @@ p {
   text-align: left;
 }
 
+.color {
+  color: white;
+}
 
 .highlight{
-  background-color: white;
+  background-color: black;
+  color: white;
+}
+
+h2 {
+   font-family: "Space Mono", monospace !important; font-weight:400;
 }
 
 
@@ -76,10 +83,10 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 80dvh;
+  padding-top: 30dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
-  padding-bottom: 20dvh;
+  padding-bottom: 100dvh;
   width: 92dvw;
   overflow-y: auto;
 }
@@ -112,9 +119,7 @@ a:hover {
   filter: blur(150)
 }
 
-h1 {
-  font-style: normal;
-}
+
 
 #maintitle {
   font-size: 60px;
@@ -277,10 +282,11 @@ h1 {
 
   #main-content {
     flex: 1;
-    padding-top: 2rem;
-    padding-left: 4dvw;
-    padding-right: 4dvw;
-    width: 90dvw;
+    padding-top: 80dvh;
+    padding-left: 3dvw;
+    padding-right: 5dvw;
+    padding-bottom: 100dvh;
+    width: 92dvw;
     overflow-y: auto;
   }
 

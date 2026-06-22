@@ -246,8 +246,13 @@ const modalClose = document.querySelector(".carousel-modal-close");
 const modalCaption = document.querySelector("#carouselModalCaption");
 
 let carouselIndex = 0;
-const imagesPerView = 3;
+let imagesPerView = computeImagesPerView();
 const totalImages = carouselImages.length;
+
+function computeImagesPerView() {
+  if (typeof window === 'undefined') return 3;
+  return window.innerWidth <= 600 ? 1 : 3;
+}
 
 function updateCarouselView() {
   // Hide all images
@@ -255,8 +260,12 @@ function updateCarouselView() {
     img.style.display = "none";
   });
 
-  // Show the current set of 3 images
-  for (let i = 0; i < imagesPerView; i++) {
+  // Ensure carouselIndex is within bounds
+  if (totalImages === 0) return;
+  carouselIndex = ((carouselIndex % totalImages) + totalImages) % totalImages;
+
+  // Show the current set of images based on imagesPerView
+  for (let i = 0; i < Math.min(imagesPerView, totalImages); i++) {
     const imageIndex = (carouselIndex + i) % totalImages;
     carouselImages[imageIndex].style.display = "block";
   }
@@ -304,3 +313,12 @@ modal.addEventListener("click", (e) => {
 
 // Initialize carousel view
 updateCarouselView();
+
+// Recompute imagesPerView on resize and refresh view when it changes
+window.addEventListener("resize", () => {
+  const newImagesPerView = computeImagesPerView();
+  if (newImagesPerView !== imagesPerView) {
+    imagesPerView = newImagesPerView;
+    updateCarouselView();
+  }
+});

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap');
 
@@ -14,8 +15,16 @@ p {
   font-size: 18px;
   line-height: 28px;
   text-align: left;
-  text-shadow: white 0px 0px 10px;
 
+}
+
+.color {
+  color: white;
+}
+
+.highlight{
+  background-color: black;
+  color: white;
 }
 
 .boxedup {
@@ -26,12 +35,6 @@ p {
   border: 5px dashed rgb(0, 0, 0);
   background-color: white;
 }
-
-
-.highlight{
-  background-color: white;
-}
-
 
 
 sub {
@@ -78,10 +81,10 @@ body {
 
 #main-content {
   flex: 1;
-  padding-top: 80dvh;
+  padding-top: 30dvh;
   padding-left: 3dvw;
   padding-right: 5dvw;
-  padding-bottom: 20dvh;
+  padding-bottom: 100dvh;
   width: 92dvw;
   overflow-y: auto;
 }
@@ -285,10 +288,11 @@ h1 {
 
   #main-content {
     flex: 1;
-    padding-top: 4rem;
-    padding-left: 4dvw;
-    padding-right: 4dvw;
-    width: 90dvw;
+    padding-top: 80dvh;
+    padding-left: 3dvw;
+    padding-right: 5dvw;
+    padding-bottom: 100dvh;
+    width: 92dvw;
     overflow-y: auto;
   }
 
