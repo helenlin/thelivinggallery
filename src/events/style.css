@@ -38,7 +38,6 @@ p {
 #igIframe {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  width: 85%;
   display: block;
   border: 5px dashed rgb(0, 0, 0);
   background-color: white;
@@ -237,7 +236,7 @@ h1 {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   #content {
     position: relative;
@@ -256,6 +255,10 @@ h1 {
     display: fixed;
     align-items: center;
     background-color: rgba(0, 0, 0);
+  }
+
+  #igIframe {
+    width: 98%;
   }
 
   .hamburger {

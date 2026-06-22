@@ -246,131 +246,6 @@ body {
   }
 }
 
-@media (max-width: 600px) {
-
-  #content {
-    position: relative;
-    z-index: 1;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-
-  #sidebar {
-    width: 100%;
-    padding: 1rem;
-    border-right: none;
-    border-bottom: none;
-    display: fixed;
-    align-items: center;
-    background-color: rgba(0, 0, 0);
-  }
-
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-  }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    display: block;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
-  }
-
-  #main-content {
-    flex: 1;
-    padding-top: 30dvh;
-    padding-left: 5dvw;
-    padding-right: 5dvw;
-    padding-bottom: 100dvh;
-    width: 90dvw;
-    overflow-y: auto;
-  }
-
-  #maintitle {
-    display: block;
-    width: 100%;
-    padding-top: 2rem;
-    padding-left: 0;
-    font-family: "Space Mono", monospace;
-  }
-
-  #menu {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 1);
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
-
-  #menu.active {
-    max-height: 400px;
-  }
-
-  #menu a {
-    padding: 0.25rem;
-    display: block;
-    margin: 0;
-    text-align: left;
-  }
-
-  #menu a:last-child {
-    border-bottom: none;
-  }
-
-  a {
-    color: white;
-    margin: 0;
-    background-color: rgb(0, 0, 0);
-  }
-
-  a:hover {
-    animation-name: colorChange;
-    animation-duration: 0.25s;
-    background-color: rgb(69, 26, 209);
-  }
-
-  h1 {
-    font-style: normal;
-  }
-
-
-.carousel-container { overflow: hidden; }
-.carousel-image {
-  flex: 0 0 100%;
-  width: 100%;
-  height: auto;
-}
-
-
-
-}
 
 /* Carousel styles */
 #carousel {
@@ -512,4 +387,160 @@ body {
   to {
     opacity: 1;
   }
+}
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+
+  #content {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .boxedup {
+    width: 98%;
+  }
+
+  #gcal {
+    width: 98%;
+  }
+
+  #carousel {
+    width: 98%;
+  }
+
+  /* include borders/padding in width calculations for consistency */
+  #carousel,
+  #gcal,
+  .boxedup {
+    box-sizing: border-box;
+  }
+
+
+.carousel-container { 
+  overflow: hidden; 
+  padding: 0; /* remove horizontal padding that shifts images */
+  box-sizing: border-box;
+}
+
+.carousel-image {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+}
+
+  #sidebar {
+    width: 100%;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: none;
+    display: fixed;
+    align-items: center;
+    background-color: rgba(0, 0, 0);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  #main-content {
+    flex: 1;
+    padding-top: 30dvh;
+    padding-left: 5dvw;
+    padding-right: 5dvw;
+    padding-bottom: 100dvh;
+    width: 90dvw;
+    overflow-y: auto;
+  }
+
+  #maintitle {
+    display: block;
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 0;
+    font-family: "Space Mono", monospace;
+  }
+
+  #menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  #menu.active {
+    max-height: 400px;
+  }
+
+  #menu a {
+    padding: 0.25rem;
+    display: block;
+    margin: 0;
+    text-align: left;
+  }
+
+  #menu a:last-child {
+    border-bottom: none;
+  }
+
+  a {
+    color: white;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+  }
+
+  a:hover {
+    animation-name: colorChange;
+    animation-duration: 0.25s;
+    background-color: rgb(69, 26, 209);
+  }
+
+  h1 {
+    font-style: normal;
+  }
+
+
+
 }

@@ -20,6 +20,14 @@ export default defineConfig({
         about: resolve(__dirname, "src/about/index.html"),
         contact: resolve(__dirname, "src/contact/index.html"),
       },
+      output: {
+        // Put each entry's JS next to its HTML (e.g. dist/about/index.[hash].js)
+        entryFileNames: '[name]/index.[hash].js',
+        // Keep shared chunks in the assets folder
+        chunkFileNames: 'assets/[name].[hash].js',
+        // Place extracted assets (CSS/images) in a folder per entry when possible
+        assetFileNames: '[name]/[name].[hash][extname]'
+      }
     },
   },
 });

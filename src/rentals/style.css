@@ -236,7 +236,7 @@ h1 {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
   #content {
     position: relative;
@@ -255,6 +255,12 @@ h1 {
     display: fixed;
     align-items: center;
     background-color: rgba(0, 0, 0);
+  }
+
+
+  #floorplan {
+    width: 98%;
+    height: auto;
   }
 
   .hamburger {
@@ -350,8 +356,9 @@ h1 {
     font-style: normal;
   }
 
+  /* Ensure floorplan fills mobile width like other boxed elements */
   #floorplan {
-    width: 88dvw;
+    width: 100%;
     height: auto;
   }
 }
